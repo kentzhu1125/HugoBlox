@@ -152,4 +152,20 @@ E = mc^2
 $$
 ```
 
+### 13. UML 语法
+
+UML 语法图是一种用于可视化、描述和设计软件系统的标准化图形表示方法。
+
+```markdown
+@startuml
+Alice -> "Bob()" : Hello
+"Bob()" -> "This is very long" as Long
+' You can also declare:
+' "Bob()" -> Long as "This is very long"
+Long --> "Bob()" : ok
+@enduml
+```
+
+PlantUML 为创建和编辑序列图提供了一种简单明了、用户友好的方法，更多关于 UML 语法的使用帮助，可以参考 <https://plantuml.com/zh/starting>
+
 以上是一些常用的Markdown语法和技巧，熟练掌握它们可以帮助你创建更富有表现力、清晰易读的文档和评论。根据你的需求，灵活运用这些语法来提升文档的质量和可理解性。
