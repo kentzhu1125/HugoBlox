@@ -860,23 +860,22 @@ Map`<语言名称,  百分比>`
 
 ### 请求
 
-`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/permission`
+`GET https://api.gitcode.com/api/v5/groups/{owner}/getMemberMgntMode`
 
 ### 参数
 
-| 参数名        | 描述                                   | 类型     | 数据类型 |
-| ------------- | -------------------------------------- | -------- | -------- |
-| access_token* | 用户授权码                             | formData | string   |
-| owner*        | 仓库所属空间地址(组织或个人的地址path) | path     | string   |
-| repo*         | 仓库路径(path)                         | path     | string   |
+| 参数名        | 描述                     | 类型     | 数据类型 |
+| ------------- |------------------------| -------- | -------- |
+| access_token* | 用户授权码                  | formData | string   |
+| owner*        | 组织所属空间地址(组织或个人的地址path) | path     | string   |
 
 ### 响应:  
 
-权限模式`0,1`，其中 0 表示继承模式，1 表示独立模式
+权限模式`1、2`，其中 1是继承模式，2是独立模式
 
 ```json
 {
-    "permission": 0
+    "memberMgntMode": 1
 }
 ```
 
@@ -885,22 +884,21 @@ Map`<语言名称,  百分比>`
 
 ### 请求
 
-`PUT https://api.gitcode.com/api/v5/repos/{owner}/{repo}/permission`
+`PUT https://api.gitcode.com/api/v5/groups/{owner}/updateMemberMgntMode`
 
 ### 参数
 
-| 参数名        | 描述                                   | 类型     | 数据类型 |
-| ------------- | -------------------------------------- | -------- | -------- |
-| access_token* | 用户授权码                             | formData | string   |
-| owner*        | 仓库所属空间地址(组织或个人的地址path) | path     | string   |
-| repo*         | 仓库路径(path)                         | path     | string   |
-| permission_type | 权限模式                            | formData | integer |
+| 参数名        | 描述                     | 类型       | 数据类型 |
+| ------------- |------------------------|----------| -------- |
+| access_token* | 用户授权码                  | formData | string   |
+| owner*        | 组织所属空间地址(组织或个人的地址path) | path     | string   |
+| memberMgntMode | 权限模式                   | path     | integer |
 
 ### 响应:  
-
-```json
+返回 "success" 表示成功，其他为失败
+```String
 {
-    "permission": 0
+    "success"
 }
 ```
 
