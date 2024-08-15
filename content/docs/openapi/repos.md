@@ -856,3 +856,51 @@ Map`<语言名称,  百分比>`
 }
 ```
 
+## 24. 获取项目的权限模式
+
+### 请求
+
+`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/permission`
+
+### 参数
+
+| 参数名        | 描述                                   | 类型     | 数据类型 |
+| ------------- | -------------------------------------- | -------- | -------- |
+| access_token* | 用户授权码                             | formData | string   |
+| owner*        | 仓库所属空间地址(组织或个人的地址path) | path     | string   |
+| repo*         | 仓库路径(path)                         | path     | string   |
+
+### 响应:  
+
+权限模式`0,1`，其中 0 表示继承模式，1 表示独立模式
+
+```json
+{
+    "permission": 0
+}
+```
+
+
+## 23. 更新仓库的权限模式
+
+### 请求
+
+`PUT https://api.gitcode.com/api/v5/repos/{owner}/{repo}/permission`
+
+### 参数
+
+| 参数名        | 描述                                   | 类型     | 数据类型 |
+| ------------- | -------------------------------------- | -------- | -------- |
+| access_token* | 用户授权码                             | formData | string   |
+| owner*        | 仓库所属空间地址(组织或个人的地址path) | path     | string   |
+| repo*         | 仓库路径(path)                         | path     | string   |
+| permission_type | 权限模式                            | formData | integer |
+
+### 响应:  
+
+```json
+{
+    "permission": 0
+}
+```
+
