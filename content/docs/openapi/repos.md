@@ -860,14 +860,15 @@ Map`<语言名称,  百分比>`
 
 ### 请求
 
-`GET https://api.gitcode.com/api/v5/groups/{owner}/getMemberMgntMode`
+`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/transition`
 
 ### 参数
 
 | 参数名        | 描述                     | 类型     | 数据类型 |
 | ------------- |------------------------| -------- | -------- |
 | access_token* | 用户授权码                  | formData | string   |
-| owner*        | 组织所属空间地址(组织或个人的地址path) | path     | string   |
+| owner*        | 仓库所属空间地址(组织或个人的地址path) | path     | string   |
+| repo*         | 仓库路径(path)                         | path     | string   |
 
 ### 响应:  
 
@@ -884,21 +885,24 @@ Map`<语言名称,  百分比>`
 
 ### 请求
 
-`PUT https://api.gitcode.com/api/v5/groups/{owner}/updateMemberMgntMode`
+`PUT https://api.gitcode.com/api/v5/repos/{owner}/{repo}/transition`
 
 ### 参数
 
 | 参数名        | 描述                     | 类型       | 数据类型 |
 | ------------- |------------------------|----------| -------- |
 | access_token* | 用户授权码                  | formData | string   |
-| owner*        | 组织所属空间地址(组织或个人的地址path) | path     | string   |
-| memberMgntMode | 权限模式                   | path     | integer |
+| owner*        | 仓库所属空间地址(组织或个人的地址path) | path     | string   |
+| repo*         | 仓库路径(path)             | path     | string   |
+| source_member_mgnt_mode | 原权限模式                  | query     | integer |
+| target_member_mgnt_mode | 新权限模式                  | query     | integer |
 
 ### 响应:  
 返回 "success" 表示成功，其他为失败
-```String
+```json
 {
-    "success"
+    "msg": "success",
+    "code": 1
 }
 ```
 
