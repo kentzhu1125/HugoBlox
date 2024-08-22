@@ -889,13 +889,13 @@ Map`<语言名称,  百分比>`
 
 ### 参数
 
-| 参数名        | 描述                     | 类型       | 数据类型 |
-| ------------- |------------------------|----------| -------- |
-| access_token* | 用户授权码                  | formData | string   |
-| owner*        | 仓库所属空间地址(组织或个人的地址path) | path     | string   |
-| repo*         | 仓库路径(path)             | path     | string   |
-| source_member_mgnt_mode | 原权限模式                  | body     | integer |
-| target_member_mgnt_mode | 新权限模式                  | body     | integer |
+| 参数名                      | 描述                     | 类型       | 数据类型 |
+|--------------------------|------------------------|----------| -------- |
+| access_token*            | 用户授权码                  | formData | string   |
+| owner*                   | 仓库所属空间地址(组织或个人的地址path) | path     | string   |
+| repo*                    | 仓库路径(path)             | path     | string   |
+| source_member_mgnt_mode* | 原权限模式                  | body     | integer |
+| target_member_mgnt_mode* | 新权限模式                  | body     | integer |
 
 ### 响应:  
 返回 "success" 表示成功，其他为失败
