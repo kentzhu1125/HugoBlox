@@ -1492,16 +1492,17 @@ HTTP status 204 No Content
 `GET https://api.gitcode.com/api/v5/enterprise/{enterprise}/pull_requests`
 
 ### 参数
-| 参数名           | 描述  | 类型  | 数据类型  |
-|---------------| ------ | ------  |------|
-| access_token* | 用户授权码 | query | string    |
-| enterprise*   | 企业的路径(path/login) | path | string    |
-| repo          |可选。仓库路径(path) | query | string    |
-| state         |可选。Pull Request 状态 | query | string    |
-| sort        |可选。排序字段，默认按创建时间 | query | string    |
-| direction        |可选。升序/降序 | query | string    |
-| page        |当前的页码 | query | string    |
-| per_page        |每页的数量，最大为 100 | query | string    |
+| 参数名           | 描述                 | 类型  | 数据类型   |
+|---------------|--------------------| ------  |--------|
+| access_token* | 用户授权码              | query | string |
+| enterprise*   | 企业的路径(path/login)  | path | string |
+| issue_number   | issue 唯一 id        | query | Long   |
+| repo          | 可选。仓库路径(path)      | query | string |
+| state         | 可选。Pull Request 状态 | query | string |
+| sort        | 可选。排序字段，默认按创建时间    | query | string |
+| direction       | 可选。升序/降序           | query | string |
+| page        | 当前的页码              | query | string |
+| per_page       | 每页的数量，最大为 100      | query | string |
 
 ### 响应
 

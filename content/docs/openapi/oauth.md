@@ -48,10 +48,12 @@ sidebar:
 ```
 
 ## 4. 使用访问令牌访问用户信息API
+
 ```text
 Authorization: Bearer {access_token}
 GET https://api.gitcode.com/api/v5/user
 ```
 
-### 5.刷新access_token
+## 5.刷新access_token
+
 `POST https://gitcode.com/oauth/token?grant_type=refresh_token&refresh_token={refresh_token}`

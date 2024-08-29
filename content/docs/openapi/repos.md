@@ -856,3 +856,129 @@ Map`<语言名称,  百分比>`
 }
 ```
 
+## 24. 获取项目的权限模式
+
+### 请求
+
+`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/transition`
+
+### 参数
+
+| 参数名        | 描述                     | 类型     | 数据类型 |
+| ------------- |------------------------| -------- | -------- |
+| access_token* | 用户授权码                  | formData | string   |
+| owner*        | 仓库所属空间地址(组织或个人的地址path) | path     | string   |
+| repo*         | 仓库路径(path)                         | path     | string   |
+
+### 响应:  
+
+权限模式`1、2`，其中 1是继承模式，2是独立模式
+
+```json
+{
+    "memberMgntMode": 1
+}
+```
+
+
+## 25. 更新仓库的权限模式
+
+### 请求
+
+`PUT https://api.gitcode.com/api/v5/repos/{owner}/{repo}/transition`
+
+### 参数
+
+| 参数名                      | 描述                     | 类型       | 数据类型 |
+|--------------------------|------------------------|----------| -------- |
+| access_token*            | 用户授权码                  | formData | string   |
+| owner*                   | 仓库所属空间地址(组织或个人的地址path) | path     | string   |
+| repo*                    | 仓库路径(path)             | path     | string   |
+| source_member_mgnt_mode* | 原权限模式                  | body     | integer |
+| target_member_mgnt_mode* | 新权限模式                  | body     | integer |
+
+### 响应:  
+返回 "success" 表示成功，其他为失败
+```json
+{
+    "msg": "success",
+    "code": 1
+}
+```
+
+## 26. 设置项目模块
+### 请求
+
+`PUT https://api.gitcode.com/api/v5/repos/{owner}/{repo}/module/setting`
+
+### 参数
+
+| 参数名           | 描述                                                                                                      | 类型       | 数据类型   |
+|---------------|---------------------------------------------------------------------------------------------------------|----------|--------|
+| access_token* | 用户授权码                                                                                                   | formData | string |
+| owner*        | 仓库所属空间地址(组织或个人的地址path)                                                                                  | path     | string |
+| repo*         | 仓库路径(path)                                                                                              | path     | string |
+| key*          | 项目模块 WIKI-WiKi、ISSUE-Issue、SECURITY-安全漏洞、MERGE_REQUEST-Pull Request、FORK-Fork、ANALYSIS-分析、DISCUSSION-讨论 | body     | string |
+| value*        | 是否设置 0-取消 1-设置                                                                                          | body     | string |
+
+### 响应:
+返回 "success" 表示成功，其他为失败
+```json
+{
+    "msg": "success",
+    "code": 1
+}
+```
+
+## 27. 设置项目推送规则
+### 请求
+
+`PUT https://api.gitcode.com/api/v5/repos/{owner}/{repo}/push_config`
+
+### 参数
+
+| 参数名                      | 描述                              | 类型       | 数据类型    |
+|--------------------------|---------------------------------|----------|---------|
+| access_token*            | 用户授权码                           | formData | string  |
+| owner*                   | 仓库所属空间地址(组织或个人的地址path)          | path     | string  |
+| repo*                    | 仓库路径(path)                      | path     | string  |
+| reject_not_signed_by_gpg | 只允许带有验证的签名提交                    | body     | boolean |
+| commit_message_regex     | 提交信息校验                          | body     | string  |
+| max_file_size            | 提交文件限制 （单位 MB）                  | body     | Integer |
+| skip_rule_for_owner      | 项目管理员的提交不受上述规则限制                | body     | boolean |
+| deny_force_push          | 禁止强推（包括管理员）                     | body     | boolean |
+
+### 响应:
+返回参数含义参考 body
+```json
+{
+    "reject_not_signed_by_gpg": false,
+    "deny_force_push": true,
+    "max_file_size": 10,
+    "skip_rule_for_owner": false
+}
+```
+
+## 28. 获取项目推送规则
+### 请求
+
+`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/push_config`
+
+### 参数
+
+| 参数名                      | 描述                              | 类型       | 数据类型    |
+|--------------------------|---------------------------------|----------|---------|
+| access_token*            | 用户授权码                           | formData | string  |
+| owner*                   | 仓库所属空间地址(组织或个人的地址path)          | path     | string  |
+| repo*                    | 仓库路径(path)                      | path     | string  |
+
+### 响应:
+返回参数含义：参考设置项目推送规则 body
+```json
+{
+    "reject_not_signed_by_gpg": false,
+    "deny_force_push": true,
+    "max_file_size": 10,
+    "skip_rule_for_owner": false
+}
+```
