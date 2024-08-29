@@ -929,3 +929,56 @@ Map`<语言名称,  百分比>`
     "code": 1
 }
 ```
+
+## 27. 设置项目推送规则
+### 请求
+
+`PUT https://api.gitcode.com/api/v5/repos/{owner}/{repo}/push_config`
+
+### 参数
+
+| 参数名                      | 描述                              | 类型       | 数据类型    |
+|--------------------------|---------------------------------|----------|---------|
+| access_token*            | 用户授权码                           | formData | string  |
+| owner*                   | 仓库所属空间地址(组织或个人的地址path)          | path     | string  |
+| repo*                    | 仓库路径(path)                      | path     | string  |
+| reject_not_signed_by_gpg | 只允许带有验证的签名提交                    | body     | boolean |
+| commit_message_regex     | 提交信息校验                          | body     | string  |
+| max_file_size            | 提交文件限制 （单位 MB）                  | body     | Integer |
+| skip_rule_for_owner      | 项目管理员的提交不受上述规则限制                | body     | boolean |
+| deny_force_push          | 禁止强推（包括管理员）                     | body     | boolean |
+
+### 响应:
+返回参数含义参考 body
+```json
+{
+    "reject_not_signed_by_gpg": false,
+    "deny_force_push": true,
+    "max_file_size": 10,
+    "skip_rule_for_owner": false
+}
+```
+
+## 28. 获取项目推送规则
+### 请求
+
+`GET https://api.gitcode.com/api/v5/repos/{owner}/{repo}/push_config`
+
+### 参数
+
+| 参数名                      | 描述                              | 类型       | 数据类型    |
+|--------------------------|---------------------------------|----------|---------|
+| access_token*            | 用户授权码                           | formData | string  |
+| owner*                   | 仓库所属空间地址(组织或个人的地址path)          | path     | string  |
+| repo*                    | 仓库路径(path)                      | path     | string  |
+
+### 响应:
+返回参数含义：参考设置项目推送规则 body
+```json
+{
+    "reject_not_signed_by_gpg": false,
+    "deny_force_push": true,
+    "max_file_size": 10,
+    "skip_rule_for_owner": false
+}
+```
